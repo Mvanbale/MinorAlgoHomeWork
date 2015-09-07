@@ -1,0 +1,42 @@
+package carpet;
+
+import java.awt.Color;
+import acm.graphics.GRect;
+import acm.program.GraphicsProgram;
+
+public class Sierpinski extends GraphicsProgram {
+    boolean firstRun = true;
+    float depth = 2;
+    public void run() {
+        GRect box = new GRect(40, 40, 800, 800);
+        box.setFilled(true); //achtergrond
+        add(box);
+        drawSerpienski(50, 50, 800);//start the sierpinski function
+    }
+
+    private void drawSerpienski(int x, int y, int side) {
+    	
+        int sub = side / 3;
+        GRect box = new GRect(x + sub, y + sub, sub - 1, sub - 1);
+        if(!firstRun){box.setFilled(true);
+        box.setColor(Color.ORANGE);
+        add(box);}
+        firstRun = false;
+        
+    	//20 	= 3 levels
+    	//45 	= 2 levels
+    	//90 	= 1 level
+        if (sub >= 20) {
+            drawSerpienski(x, y, sub);
+            drawSerpienski(x + sub, y, sub);
+            drawSerpienski(x + 2 * sub, y, sub);
+            drawSerpienski(x, y + sub, sub);
+            drawSerpienski(x + 2 * sub, y + sub, sub);
+            drawSerpienski(x, y + 2 * sub, sub);
+            drawSerpienski(x + sub, y + 2 * sub, sub);
+            drawSerpienski(x + 2 * sub, y + 2 * sub, sub);
+        }
+        
+    }
+
+}
