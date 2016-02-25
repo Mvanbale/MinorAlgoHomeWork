@@ -12,7 +12,7 @@ var rl = readline.createInterface({
 });
 
 
-//kick off the display function 
+//kick off the display function
 display();
 
 //this function holds the logic needed to display the assignment selection and responses. The logic of the assignments is set in seperate functions.
@@ -68,7 +68,7 @@ function display() {
             break;
 
         default:
-            console.log("Input incorrect, select 1 through 4");
+            console.log("Input incorrect, select 1.1 1.2 2.1 2.2 3.1 or 3.3");
             display(); //result given, restart the display prompt
             break;
         }

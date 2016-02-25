@@ -7,7 +7,7 @@ function iterFibonacci(n) {
     fibs.push(0);
     fibs.push(1);
 
-    for (i = 0; i < n; i++) {
+    for (i = 0; i <= n; i++) {
         fibs.push(fibs[0] + fibs[1]);
         fibs.shift(); //shift removes the first array element
     }
